@@ -88,3 +88,7 @@ simply run in the background.
 2. Checkout source: `git clone https://github.com/jimeh/docker-znc.git && cd docker-znc`
 3. Build container: `sudo docker build -t $(whoami)/znc .`
 4. Run container: `sudo docker run -d -p 6667 -v $HOME/.znc:/znc-data $(whoami)/znc`
+
+
+## Credits
+forked from https://github.com/jimeh/docker-znc  and updated znc version. 
