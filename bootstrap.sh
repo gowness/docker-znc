@@ -10,10 +10,11 @@ ZNC_VERSION="1.6.0"
 apt-get update
 
 apt-get install -y python-software-properties
-add-apt-repository ppa:ubuntu-toolchain-r/test
+add-apt-repository -y ppa:ubuntu-toolchain-r/test
 apt-get update
 apt-get install -y gcc-4.8 g++-4.8
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
 # Install runtime dependencies.
 apt-get install -y sudo
