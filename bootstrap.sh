@@ -9,7 +9,7 @@ ZNC_VERSION="1.6.0"
 # Ensure package list is up to date.
 apt-get update
 
-apt-get install python-software-properties
+apt-get install -y python-software-properties
 add-apt-repository ppa:ubuntu-toolchain-r/test
 apt-get update
 apt-get install -y gcc-4.8
