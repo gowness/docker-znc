@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env ash
 
 # Options.
 DATADIR="/znc-data"
@@ -29,7 +29,7 @@ fi
 
 # Make sure $DATADIR is owned by znc user. This effects ownership of the
 # mounted directory on the host machine too.
-chown -R znc:znc "$DATADIR"
+chown -R znc "$DATADIR"
 
 # Start ZNC.
-exec sudo -u znc znc --foreground --datadir="$DATADIR" $@
+exec su - znc -c "znc --foreground --datadir="$DATADIR" $@"
