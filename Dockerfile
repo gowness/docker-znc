@@ -1,9 +1,6 @@
 FROM        alpine
 MAINTAINER  gowness "biga05@gmail.com"
 
-RUN apk update && apk upgrade && apk add autoconf automake gettext-dev g++ make openssl-dev pkgconfig zlib-dev git gdb
-
-
 ADD         bootstrap.sh /tmp/
 RUN         chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
 

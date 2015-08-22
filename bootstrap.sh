@@ -1,9 +1,9 @@
 #! /usr/bin/env ash
 set -e
 
-#apk update 
-#apk upgrade   
-#apk add autoconf automake gettext-dev g++ make openssl-dev pkgconfig zlib-dev git gdb
+apk update 
+apk upgrade   
+apk add autoconf automake gettext-dev g++ make openssl-dev pkgconfig zlib-dev git gdb
 
 # Prepare building
 mkdir -p /src
