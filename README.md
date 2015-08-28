@@ -2,19 +2,16 @@
 
 Run the [ZNC](http://znc.in) IRC Bouncer in a Docker container.
 
+Bassed off Jimeh's container: https://github.com/jimeh/docker-znc
 
-## Prerequisites
-
-1. Install [Docker](http://docker.io/).
-2. Make .znc folder: `mkdir $HOME/.znc`
-
+now converted to Alpine linux for 66% reduction in size! 
 
 ## Running
 
 To retain your ZNC settings between runs, you will need to bind a directory
 from the host to `/znc-data` in the container. For example:
 
-    docker run -d -p 6667 -v $HOME/.znc:/znc-data jimeh/znc
+    docker run -d -p 6667 -v $HOME/.znc:/znc-data gowness/znc
 
 This will download the image if needed, and create a default config file in
 your data directory unless you already have a config in place. The default
@@ -25,7 +22,7 @@ exposed:
 
 Or if you want to specify which port to map the default 6667 port to:
 
-    docker run -d -p 36667:6667 -v $HOME/.znc:/znc-data jimeh/znc
+    docker run -d -p 36667:6667 -v $HOME/.znc:/znc-data gowness/znc
 
 Resulting in port 36667 on the host mapping to 6667 within the container.
 
@@ -55,11 +52,6 @@ down ZNC's startup with a few seconds.
 
 ## Notes on DATADIR
 
-ZNC needs a data/config directory to run. Within the container it uses
-`/znc-data`, so to retain this data when shutting down a container, you should
-mount a directory from the host. Hence `-v $HOME/.znc:/znc-data` is part of
-the instructions above.
-
 As ZNC needs to run as it's own user within the container, the directory will
 have it's ownership changed to UID 1000 (user) and GID 1000 (group). Meaning
 after the first run, you might need root access to manually modify the data
@@ -71,7 +63,7 @@ directory.
 As `docker run` passes all arguments after the image name to the entrypoint
 script, the [start-znc][] script simply passes all arguments along to ZNC.
 
-[start-znc]: https://github.com/jimeh/docker-znc/blob/master/start-znc
+[start-znc]: https://github.com/gowness/docker-znc/blob/master/start-znc
 
 For example, if you want to use the `--makepass` option, you would run:
 
@@ -85,7 +77,7 @@ simply run in the background.
 ## Building It Yourself
 
 1. Follow Prerequisites above.
-2. Checkout source: `git clone https://github.com/jimeh/docker-znc.git && cd docker-znc`
+2. Checkout source: `git clone https://github.com/gowness/docker-znc.git && cd docker-znc`
 3. Build container: `sudo docker build -t $(whoami)/znc .`
 4. Run container: `sudo docker run -d -p 6667 -v $HOME/.znc:/znc-data $(whoami)/znc`
 
