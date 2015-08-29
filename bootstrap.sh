@@ -17,5 +17,5 @@ cd "znc"
 
 
 #clean up 
-apk del  autoconf automake g++ make pkgconfig 
+apk del  autoconf automake pkgconfig 
 rm  -rf /src/znc /var/cache/apk/*
