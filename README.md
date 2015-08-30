@@ -4,7 +4,7 @@ Run the [ZNC](http://znc.in) IRC Bouncer in a Docker container.
 
 Bassed off Jimeh's container: https://github.com/jimeh/docker-znc
 
-now converted to Alpine linux for 66% reduction in size! 
+now converted to Alpine linux for 33% reduction in size! 
 
 ## Running
 
