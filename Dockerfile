@@ -2,7 +2,7 @@ FROM        alpine
 MAINTAINER  gowness "biga05@gmail.com"
 
 ADD         bootstrap.sh /tmp/
-RUN         chmod +x /tmp/bootstrap.sh && /tmp/bootstrap.sh
+RUN         chmod +x /tmp/bootstrap.sh && sleep 1 && /tmp/bootstrap.sh
 
 RUN         adduser -D znc
 ADD         start-znc /usr/local/bin/
